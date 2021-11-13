@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {User, Thread, Reply} = require('../models/models_index');
+const {User, Thread,} = require('../models');
 
 //All threads
 router.get('/', async(req,res)=>{
