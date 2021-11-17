@@ -1,5 +1,5 @@
 const sequelize = require('../config/connection');
-const { User, Thread, Reply } = require('../models/models_index');
+const { User, Thread, Reply } = require('../models/index');
 
 const userData = require('./userData.json');
 const threadData = require('./threadData.json');

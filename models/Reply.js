@@ -20,7 +20,7 @@ Reply.init({
     thread_id:{
         type: DataTypes.INTEGER,
         references:{
-            model:'user',
+            model:'thread',
             key:'id',
           },
     },

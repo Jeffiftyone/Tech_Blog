@@ -5,18 +5,18 @@
     "post_date": "October 15, 2018"
   },
   {
-    "name": "The Ultimate Tech Quiz",
-    "description": "A web app that will give users 10 new technical questions each day and track their progress in things like programming, cybersecurity, database architecture, and more!",
+    "title": "The Ultimate Tech Quiz",
+    "body": "A web app that will give users 10 new technical questions each day and track their progress in things like programming, cybersecurity, database architecture, and more!",
     "post_date": "October 15, 2018"
   },
   {
-    "name": "Roll 'Em Up",
-    "description": "A game for Windows and macOS where players move a ball through a series of increasingly challenging mazes.",
+    "title": "Roll 'Em Up",
+    "body": "A game for Windows and macOS where players move a ball through a series of increasingly challenging mazes.",
     "post_date": "October 15, 2018"
   },
   {
-    "name": "Roll 'Em Up",
-    "description": "A game for Windows and macOS where players move a ball through a series of increasingly challenging mazes.",
+    "title": "Roll 'Em Up",
+    "body": "A game for Windows and macOS where players move a ball through a series of increasingly challenging mazes.",
     "post_date": "October 15, 2018"
   }
 ]

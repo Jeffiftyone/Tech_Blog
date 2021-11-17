@@ -2,6 +2,19 @@ const router = require('express').Router();
 const { Thread } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+//get all threads
+router.get('/', async (req, res)=>{
+    try {
+      const threadData = await Thread.findAll();
+      const threads = threadData.map((thread) => thread.get({ plain: true }))
+      console.log(threads)
+      res.render('threads', {
+        languages,loggedIn: req.session.logged_in
+      })
+    } catch (err) {
+      res.status(400).json(err);
+    }
+  });
 router.post('/', withAuth, async (req, res) => {
   try {
     const newThread = await Thread.create({
