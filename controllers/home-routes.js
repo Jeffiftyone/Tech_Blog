@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {User, Thread} = require('../models');
+const {User, Thread, Reply} = require('../models');
 
 //All threads
 router.get('/', async(req,res)=>{
@@ -25,13 +25,37 @@ router.get('/', async(req,res)=>{
 });
 
 
-//All threads by user
-router.get('/', async(req,res)=>{
+//get thread by id
+router.get('/thread/:id', async (req, res) => {
   try {
-    const dbThreadData= await User.findAll();
-      res.status(200);
-  } catch (error) {
-      res.status(400);
+    const threadData = await Thread.findByPk(req.params.id, {
+      include: [
+        {
+          model: Reply,
+          required: false,
+          attributes: ['body', 'post_date'],
+          include: [{
+            model: User,
+            required: false,
+            attributes: ['name'],
+          }],
+        },
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
+    });
+
+    const thread = threadData.get({ plain: true });
+    
+    console.log(thread);
+    res.render('thread', {
+      ...thread,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
   }
 });
 
