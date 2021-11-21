@@ -6,9 +6,10 @@
     <p>Created by {{user.name}} on {{format_date post_date}}</p>
   <p>{{body}}</p>
 
-<form class="form new-comment-form">
+<form class="form new-reply-form">
   <div class="form-group">
     <label for="reply-text">Reply:</label>
+    <input type="hidden" name="thread-id" value="{{post.id}}" />
     <input class="form-input" type="text" id="reply-text" />
   </div>
   <div class="form-group">
@@ -16,7 +17,7 @@
   </div>
 </form>
 
-{{!-- <script src="../js/reply.js"></script> --}}
+<script src="../public/js/reply.js"></script>
 
   {{!-- All other replies --}}
  
