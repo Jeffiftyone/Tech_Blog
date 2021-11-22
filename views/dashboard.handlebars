@@ -1,0 +1,19 @@
+    <div>
+        <a href="/dashboard/create/"><button id="create-thread" class="button">create post</button></a>
+        
+        <h2>dashboard: your posts</h2><hr>
+{{#if thread.length}}
+    </div>
+
+    {{#each threads as |thread|}}
+        {{> thread-info thread}}
+        
+            <a href="/dashboard/edit/{{thread.id}}"><button>edit post</button></a>
+        </div>
+    {{/each}}
+
+{{else}}
+<h6>you do not currently have any posts</h6>
+
+{{/if}}
+

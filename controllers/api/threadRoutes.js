@@ -9,7 +9,7 @@ router.get('/', async (req, res)=>{
       const threads = threadData.map((thread) => thread.get({ plain: true }))
       console.log(threads)
       res.render('threads', {
-        languages,loggedIn: req.session.logged_in
+        languages,loggedIn: req.session.loggedIn
       })
     } catch (err) {
       res.status(400).json(err);

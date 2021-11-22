@@ -1,6 +1,53 @@
 const router = require('express').Router();
-const { User } = require('../../models/');
+const { User, Thread, Reply } = require('../../models/');
 
+// GET /api/users
+router.get('/', (req, res) => {
+  User.findAll({
+      attributes: { exclude: ['password'] }
+  })
+    .then(dbUserData => res.json(dbUserData))
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+// GET /api/users/1
+router.get('/:id', (req, res) => {
+  User.findOne({
+      attributes: { exclude: ['password']},
+      where: {
+        id: req.params.id
+      },
+      include: [
+          {
+            model: Thread,
+            attributes: ['id', 'title', 'body', 'post_date']
+          },
+          {
+              model: Reply,
+              attributes: ['id', 'body', 'post_date'],
+              include: {
+                model: Thread,
+                attributes: ['title']
+              }
+          }
+        ]
+
+  })
+    .then(dbUserData => {
+      if (!dbUserData) {
+        res.status(404).json({ message: 'No user found with this id' });
+        return;
+      }
+      res.json(dbUserData);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 
 router.post('/', async (req, res) => {
   try {
@@ -8,7 +55,7 @@ router.post('/', async (req, res) => {
 
     req.session.save(() => {
       req.session.user_id = userData.id;
-      req.session.logged_in = true;
+      req.session.loggedIn = true;
 
       res.status(200).json(userData);
     });
@@ -39,7 +86,7 @@ router.post('/login', async (req, res) => {
 
     req.session.save(() => {
       req.session.user_id = userData.id;
-      req.session.logged_in = true;
+      req.session.loggedIn = true;
       
       res.json({ user: userData, message: 'You are now logged in!' });
     });
@@ -50,7 +97,7 @@ router.post('/login', async (req, res) => {
 });
 
 router.post('/logout', (req, res) => {
-  if (req.session.logged_in) {
+  if (req.session.loggedIn) {
     req.session.destroy(() => {
       res.status(204).end();
     });

@@ -17,7 +17,7 @@ router.get('/', async(req,res)=>{
     // Pass serialized data and session flag into template
     res.render('homepage', { 
      threads, 
-      logged_in: req.session.logged_in 
+      loggedIn: req.session.loggedIn 
     });
   } catch (err) {
     res.status(500).json(err);
@@ -52,7 +52,7 @@ router.get('/thread/:id', async (req, res) => {
     console.log(thread);
     res.render('thread', {
       ...thread,
-      logged_in: req.session.logged_in
+      loggedIn: req.session.loggedIn
     });
   } catch (err) {
     res.status(500).json(err);

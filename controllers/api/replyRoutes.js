@@ -4,7 +4,7 @@ const { Reply, Thread, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 //get all replies from thread
-router.get('/:id', withAuth,async (req, res) => {
+router.get('/:id',async (req, res) => {
   try {
       const replyData = await Reply.findAll({
           where: { thread_id: req.params.id },
@@ -15,7 +15,7 @@ router.get('/:id', withAuth,async (req, res) => {
       const user = replyData[0].user.name
 
       res.render('reply', {
-          replies, thread, user, loggedIn: req.session.logged_In
+          replies, thread, user, loggedIn: req.session.loggedIn
       })
   } catch (error) {
       res.status(500).json(error);
@@ -39,7 +39,7 @@ router.post('/', withAuth, async (req, res) => {
 });
 
 //DELETE reply
-router.delete('/:id', withAuth, async (req, res) => {
+router.delete('/:id',withAuth, async (req, res) => {
   try {
     const replyData = await Reply.destroy({
       where: {
