@@ -1,22 +1,22 @@
 [
   {
-    "title": "First Post",
+    "title": "How was everybody's day?",
     "body": "hi this is the first post",
-    "post_date": "October 15, 2018"
+    "post_date": "October 15, 2021"
   },
   {
-    "title": "The Ultimate Tech Quiz",
-    "body": "A web app that will give users 10 new technical questions each day and track their progress in things like programming, cybersecurity, database architecture, and more!",
-    "post_date": "October 15, 2018"
+    "title": "apples or oranges",
+    "body": "I prefer windows",
+    "post_date": "October 15, 2021"
   },
   {
-    "title": "Roll 'Em Up",
-    "body": "A game for Windows and macOS where players move a ball through a series of increasingly challenging mazes.",
-    "post_date": "October 15, 2018"
+    "title": "I deleted system32",
+    "body": "why is this possible",
+    "post_date": "October 15, 2021"
   },
   {
-    "title": "Roll 'Em Up",
-    "body": "A game for Windows and macOS where players move a ball through a series of increasingly challenging mazes.",
-    "post_date": "October 15, 2018"
+    "title": "Need a new game",
+    "body": "A game for Windows and macOS ",
+    "post_date": "October 15, 2021"
   }
 ]
