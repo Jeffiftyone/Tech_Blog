@@ -54,15 +54,20 @@ Email: [Email Address](jeffiftyone@gmail.com)
 Please feel free to contact me for further questions via email, which is my preferred method.
 
 ## Screenshots
-
+Home Page:
 ![Homepage](./utils/assets/homepage.PNG)
 
+Replies by default:
 ![Replylogout](./utils/assets/logoutreply.PNG)
 
+Login/Signup:
 ![Signup](./utils/assets/login_signup.PNG)
 
+Dashboard:
 ![Dashboard](./utils/assets/dashboard.PNG)
 
+New Post:
 ![NewPost](./utils/assets/newpost.PNG)
 
+Replies after logging in:
 ![Reply](./utils/assets/loginreply.PNG)
