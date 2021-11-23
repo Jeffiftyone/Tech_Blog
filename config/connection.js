@@ -8,7 +8,7 @@ const sequelize = new Sequelize(
   {
     host: 'w3epjhex7h2ccjxx.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
     dialect: 'mysql',
-    port: 3306,
+    port: process.env.PORT,
   }
 );
 
