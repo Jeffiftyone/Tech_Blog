@@ -1,9 +1,9 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Thread, User, Reply } = require('../models');
-const withAuth = require('../utils/auth');
+//const withAuth = require('../utils/auth');
 
-router.get('/', withAuth, (req, res) => {
+router.get('/', (req, res) => {
     Thread.findAll({
       where: {
         // use the ID from the session
@@ -21,12 +21,12 @@ router.get('/', withAuth, (req, res) => {
           attributes: ['id', 'body', 'thread_id', 'user_id', 'post_date'],
           include: {
             model: User,
-            attributes: ['username']
+            attributes: ['name']
           }
         },
         {
           model: User,
-          attributes: ['username']
+          attributes: ['name']
         }
       ]
     })
@@ -41,7 +41,7 @@ router.get('/', withAuth, (req, res) => {
       });
   });
 
-  router.get('/edit/:id', withAuth, (req, res) => {
+  router.get('/edit/:id', (req, res) => {
     Thread.findOne({
       where: {
         id: req.params.id
@@ -58,12 +58,12 @@ router.get('/', withAuth, (req, res) => {
           attributes: ['id', 'body', 'thread_id', 'user_id', 'created_at'],
           include: {
             model: User,
-            attributes: ['username']
+            attributes: ['name']
           }
         },
         {
           model: User,
-          attributes: ['username']
+          attributes: ['name']
         }
       ]
     })
@@ -87,7 +87,7 @@ router.get('/', withAuth, (req, res) => {
       });
 });
 
-router.get('/create/', withAuth, (req, res) => {
+router.get('/create/', (req, res) => {
     Thread.findAll({
       where: {
         // use the ID from the session
@@ -105,12 +105,12 @@ router.get('/create/', withAuth, (req, res) => {
           attributes: ['id', 'body', 'thread_id', 'user_id', 'post_date'],
           include: {
             model: User,
-            attributes: ['username']
+            attributes: ['name']
           }
         },
         {
           model: User,
-          attributes: ['username']
+          attributes: ['name']
         }
       ]
     })

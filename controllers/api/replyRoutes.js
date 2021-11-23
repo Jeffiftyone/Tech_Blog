@@ -24,17 +24,19 @@ router.get('/:id',async (req, res) => {
 
 
 //Create a new reply
-router.post('/', withAuth, async (req, res) => {
-  try {
-    const newReply = await Reply.create({
-      ...req.body, 
+router.post('/', withAuth, (req, res) => {
+  if (req.session) {
+    Reply.create({
+      body: req.body.reply_body,
       thread_id: req.body.thread_id,
+      // use the id from the session
       user_id: req.session.user_id,
-    });
-
-    res.status(200).json(newReply);
-  } catch (err) {
-    res.status(400).json(err);
+    })
+      .then(dbReplyData => res.json(dbReplyData))
+      .catch(err => {
+        console.log(err);
+        res.status(400).json(err);
+      });
   }
 });
 

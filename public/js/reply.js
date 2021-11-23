@@ -1,15 +1,15 @@
 const replyFormHandler = async function(event) {
     event.preventDefault();
   
-    const threadId = document.querySelector('input[name="thread-id"]').value;
-    const body = document.querySelector('textarea[name="reply-text"]').value;
+    const thread_id = document.querySelector('input[name="thread-id"]').value;
+    const reply_body = document.querySelector('textarea[name="reply-text"]').value;
   
     if (body) {
-      await fetch('/api/thread', {
+      await fetch('/api/replies', {
         method: 'POST',
         body: JSON.stringify({
-          threadId,
-          body
+          thread_id,
+          reply_body
         }),
         headers: {
           'Content-Type': 'application/json'
