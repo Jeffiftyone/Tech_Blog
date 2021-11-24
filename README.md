@@ -7,9 +7,7 @@ Summary: This application allows users register and log in to post and reply to 
 check out the deployed application on: https://jeff51techblog.herokuapp.com/
 
 ## Table of Contents
-- [TeachThruTalk](#TeachThruTalk)
   - [Description](#description)
-  - [Table of Contents](#table-of-contents)
   - [Installation](#installation)
   - [Usage](#usage)
   - [Licenses](#licenses)
