@@ -5,6 +5,12 @@ const {User, Thread, Reply} = require('../models');
 router.get('/', async(req,res)=>{
     try {
       const threadData= await Thread.findAll({
+      attributes: [
+          'id',
+          'title',
+          'content',
+          'created_at'
+      ],
       include: [
         {
           model: User,
@@ -33,7 +39,7 @@ router.get('/thread/:id', async (req, res) => {
         {
           model: Reply,
           required: false,
-          attributes: ['reply_text'],
+          attributes: ['id','reply_text', 'thread_id', 'user_id', 'created_at' ],
           include: [{
             model: User,
             required: false,

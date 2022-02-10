@@ -28,7 +28,7 @@
   {{#each replies as |reply| }}
 <div class="row mb-4 thread">
   <div class="col-md-5">
-    <p>Posted by {{reply.user.name}}</p>
+    <p>Posted by {{reply.user.name}} on {{format_date created_at}}</p>
       <p>
       {{reply.reply_text}}
     </p>
