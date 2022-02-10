@@ -10,12 +10,8 @@ Reply.init({
       primaryKey:true,
       autoIncrement:true,
     },
-    body:{
+    reply_text:{
         type:DataTypes.STRING, 
-    },
-    post_date:{
-        type: DataTypes.DATE,
-        allowNull: false,
     },
     thread_id:{
         type: DataTypes.INTEGER,

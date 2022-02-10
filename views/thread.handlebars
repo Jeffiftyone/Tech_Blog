@@ -3,20 +3,20 @@
    <h2 >{{title}}</h2>
  </div>
   
-    <p>Created by {{user.name}} on {{format_date post_date}}</p>
+    <p>Created by {{user.name}}</p>
   <p>{{body}}</p>
 {{#if loggedIn}}
-<form class="form new-reply-form">
+<form class="reply-form" id="reply-form">
   <div class="form-group">
     <label for="reply-text">Reply:</label>
-    <input type="hidden" name="thread-id" value="{{thread.id}}" />
-    <input class="form-input" type="text" id="reply-text" />
+    <input type="hidden" name="thread-id" id="thread-id" value="{{thread.id}}" />
+    <input class="form-input" name="reply-text" id="reply-text" />
   </div>
   <div class="form-group">
     <button class="btn btn-primary" type="submit">Submit</button>
   </div>
 </form>
-<script src="../public/js/reply.js"></script>
+<script src="/js/reply.js"></script>
 {{else}}
 <h3>---You must be logged in to add a comment---</h3>
 {{/if}}
@@ -28,9 +28,9 @@
   {{#each replies as |reply| }}
 <div class="row mb-4 thread">
   <div class="col-md-5">
-    <p>Posted on {{format_date reply.post_date}} by {{reply.user.name}}</p>
+    <p>Posted by {{reply.user.name}}</p>
       <p>
-      {{reply.body}}
+      {{reply.reply_text}}
     </p>
   </div>
 </div>

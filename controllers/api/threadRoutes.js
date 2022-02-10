@@ -22,14 +22,14 @@ router.get('/', async (req, res)=>{
           where: {
               id: req.params.id,
           },
-          attributes: ["id", "title", "body", "post_date"],
+          attributes: ["id", "title", "content"],
           include: [{
                   model: User,
                   attributes: ["name"],
               },
               {
                   model: Reply,
-                  attributes: ["id", "body", "thread_id", "user_id", "post_date"],
+                  attributes: ["id", "reply_text", "thread_id", "user_id"],
                   include: {
                       model: User,
                       attributes: ["name"],
@@ -40,7 +40,7 @@ router.get('/', async (req, res)=>{
       .then((dbThreadData) => {
           if (!dbThreadData) {
               res.status(404).json({
-                  message: "No post found with this id"
+                  message: "No thread found with this id"
               });
               return;
           }
@@ -52,17 +52,40 @@ router.get('/', async (req, res)=>{
       });
   });
 
-router.post('/', withAuth, (req, res) => {
-  Thread.create({
-    title: req.body.title,
-    body: req.body.body,
-    user_id: req.session.user_id
-  })
-    .then(dbThreadData => res.json(dbThreadData))
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
+router.post('/', async (req, res) => {
+  try {
+    const threadData = await Thread.create({
+      title: req.body.title,
+      content: req.body.content,
+      user_id: req.session.user_id
+      
+  });
+  res.status(200).json(threadData);
+   
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+router.put('/:id', withAuth, (req, res) => {
+  Thread.update({
+          title: req.body.title,
+          content: req.body.content
+      }, {
+          where: {
+              id: req.params.id
+          }
+      }).then(dbThreadData => {
+          if (!dbThreadData) {
+              res.status(404).json({ message: 'No thread found with this id' });
+              return;
+          }
+          res.json(dbThreadData);
+      })
+      .catch(err => {
+          console.log(err);
+          res.status(500).json(err);
+      });
 });
 
 router.delete('/:id', withAuth, async (req, res) => {

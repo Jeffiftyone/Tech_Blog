@@ -33,7 +33,7 @@ router.get('/thread/:id', async (req, res) => {
         {
           model: Reply,
           required: false,
-          attributes: ['body', 'post_date'],
+          attributes: ['reply_text'],
           include: [{
             model: User,
             required: false,

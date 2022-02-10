@@ -24,7 +24,7 @@ Thread.hasMany(Reply,{
 });
 
 Reply.belongsTo(Thread, {
-  foreignKey: 'Thread_id'
+  foreignKey: 'thread_id'
 });
 
 Reply.belongsTo(User,{

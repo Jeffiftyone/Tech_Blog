@@ -15,12 +15,8 @@ Thread.init(
     title:{
       type:DataTypes.STRING,
     },
-    body:{
+    content:{
         type:DataTypes.STRING, 
-    },
-    post_date:{
-        type: DataTypes.DATE,
-        allowNull: false,
     },
     user_id:{
         type: DataTypes.INTEGER,

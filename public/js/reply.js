@@ -1,25 +1,30 @@
 const replyFormHandler = async function(event) {
     event.preventDefault();
   
-    const thread_id = document.querySelector('input[name="thread-id"]').value;
-    const reply_body = document.querySelector('textarea[name="reply-text"]').value;
+    const thread_id = document.querySelector('#thread-id').value;
+    const reply_text = document.querySelector('input[name="reply-text"]').value;
   
-    if (body) {
-      await fetch('/api/replies', {
+    if (reply_text) {
+      const response = await fetch('/api/replies', {
         method: 'POST',
         body: JSON.stringify({
           thread_id,
-          reply_body
+          reply_text
         }),
         headers: {
           'Content-Type': 'application/json'
         }
       });
   
-      document.location.reload();
+      if (response.ok) {
+        document.location.reload();
+      } else {
+  
+        alert(response.statusText);
+      }
     }
+    
   };
   
-  document
-    .querySelector('#new-reply-form')
-    .addEventListener('submit', replyFormHandler);
+  document.querySelector('#reply-form').addEventListener('submit', replyFormHandler);
+ 

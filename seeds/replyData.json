@@ -1,49 +1,41 @@
 [
     {
-        "body": "it was excellent my good sir.",
-        "post_date": "October 15, 2021",
+        "reply_text": "it was excellent my good sir.",
         "thread_id": 1,
         "user_id": 2
     },
     {
-        "body": "i had a terrible day - someone please ask me about it.",
-        "post_date": "October 15, 2021",
+        "reply_text": "i had a terrible day - someone please ask me about it.",
         "thread_id": 1,
         "user_id": 2
     },
     {
-        "body": "I like apple.",
-        "post_date": "October 15, 2021",
+        "reply_text": "I like apple.",
         "thread_id": 2,
         "user_id": 1
     },
     {
-        "body": "Linux is supreme.",
-        "post_date": "October 15, 2021",
+        "reply_text": "Linux is supreme.",
         "thread_id": 2,
         "user_id": 3
     },
     {
-        "body": "you r dum",
-        "post_date": "October 15, 2021",
+        "reply_text": "you r dum",
         "thread_id": 3,
         "user_id": 2
     },
     {
-        "body": "Just download more RAM",
-        "post_date": "October 15, 2021",
+        "reply_text": "Just download more RAM",
         "thread_id": 3,
         "user_id": 1
     },
     {
-        "body": "Solitaire",
-        "post_date": "October 15, 2021",
+        "reply_text": "Solitaire",
         "thread_id": 4,
         "user_id": 1
     },
     {
-        "body": "robot unicorn attack",
-        "post_date": "October 15, 2021",
+        "reply_text": "robot unicorn attack",
         "thread_id": 4,
         "user_id": 1
     }

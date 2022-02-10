@@ -1,22 +1,18 @@
 [
   {
     "title": "How was everybody's day?",
-    "body": "hi this is the first post",
-    "post_date": "October 15, 2021"
+    "content": "hi this is the first post"
   },
   {
     "title": "apples or oranges",
-    "body": "I prefer windows",
-    "post_date": "October 15, 2021"
+    "content": "I prefer windows"
   },
   {
     "title": "I deleted system32",
-    "body": "why is this possible",
-    "post_date": "October 15, 2021"
+    "content": "why is this possible"
   },
   {
     "title": "Need a new game",
-    "body": "A game for Windows and macOS ",
-    "post_date": "October 15, 2021"
+    "content": "A game for Windows and macOS "
   }
 ]
