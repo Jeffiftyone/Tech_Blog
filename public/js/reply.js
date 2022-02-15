@@ -1,7 +1,9 @@
 const replyFormHandler = async function(event) {
     event.preventDefault();
   
-    const thread_id = document.querySelector('#thread-id').value;
+    const thread_id = window.location.toString().split('/')[
+      window.location.toString().split('/').length - 1
+  ];
     const reply_text = document.querySelector('input[name="reply-text"]').value;
   
     if (reply_text) {

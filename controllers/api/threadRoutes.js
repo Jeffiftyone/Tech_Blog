@@ -9,7 +9,7 @@ router.get('/', async (req, res)=>{
       const threads = threadData.map((thread) => thread.get({ plain: true }))
       console.log(threads)
       res.render('threads', {
-        languages,loggedIn: req.session.loggedIn
+        loggedIn: req.session.loggedIn
       })
     } catch (err) {
       res.status(400).json(err);
@@ -22,14 +22,14 @@ router.get('/', async (req, res)=>{
           where: {
               id: req.params.id,
           },
-          attributes: ["id", "title", "content"],
+          attributes: ["id", "title", "content", "created_at"],
           include: [{
                   model: User,
                   attributes: ["name"],
               },
               {
                   model: Reply,
-                  attributes: ["id", "reply_text", "thread_id", "user_id"],
+                  attributes: ["id", "reply_text", "thread_id", "user_id", "created_at"],
                   include: {
                       model: User,
                       attributes: ["name"],

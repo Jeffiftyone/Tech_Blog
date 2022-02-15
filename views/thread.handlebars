@@ -1,10 +1,12 @@
 <div>
  <div class="text-center">
    <h2 >{{title}}</h2>
+       <p><small>Created by {{user.name}}</small> </p>
+      <p>{{content}}</p>
  </div>
-  
-    <p>Created by {{user.name}}</p>
-  <p>{{body}}</p>
+ 
+
+
 {{#if loggedIn}}
 <form class="reply-form" id="reply-form">
   <div class="form-group">
@@ -28,7 +30,7 @@
   {{#each replies as |reply| }}
 <div class="row mb-4 thread">
   <div class="col-md-5">
-    <p>Posted by {{reply.user.name}} on {{format_date created_at}}</p>
+    <p><small>Posted by {{reply.user.name}} on {{format_date reply.created_at}}</small></p>
       <p>
       {{reply.reply_text}}
     </p>
