@@ -2,7 +2,9 @@
 
 ## Description
 
-Summary: This application allows users register and log in to post and reply to posts on a blog site.
+This application is a CMS-style blog site. Users can publish their blog posts and comment on other user's posts.
+Non-users have restricted access to the application's features. The app follows the Model-View-Controller (MVC)
+design pattern using Handlebars.js, Sequielize as the ORM, and express
 
 check out the deployed application on: https://jeff51techblog.herokuapp.com/
 
@@ -11,7 +13,6 @@ check out the deployed application on: https://jeff51techblog.herokuapp.com/
   - [Installation](#installation)
   - [Usage](#usage)
   - [Licenses](#licenses)
-  - [Tests](#tests)
   - [Technologies Used](#technologies-used)
   - [Questions](#questions)
   - [Screenshot](#screenshot)
@@ -36,13 +37,9 @@ They are also able to reply to other threads.
 Click [here](https://choosealicense.com/licenses/mit) for MIT license information
 
 
-## Tests
-
-Will be provided, TBD.
-
 ## Technologies Used
 
-This application uses the following technologies: HTML, CSS, JavaScript, mySQL/Squelize, Node, Express, Heroku.
+This application uses the following technologies: HTML, CSS, JavaScript, Handlebars.js, mySQL/Squelize, Node, Express, Heroku.
 
 ## Questions
 
